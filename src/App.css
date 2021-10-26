@@ -1,4 +1,10 @@
 .App {
     width: 90%;
-    margin:  auto;
+    margin: auto;
+}
+
+.loading {
+    width: 200px;
+    text-align: center;
+    margin: 50% auto;
 }

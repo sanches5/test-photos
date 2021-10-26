@@ -35,7 +35,7 @@ const App: FC = () => {
             {!loading && photos.length ? <Table
                 photos={photos}
                 handleDeletePhoto={handleDeletePhoto}
-            /> : <div>...LOADING</div>}
+            /> : <div className={"loading"}>...LOADING</div>}
         </div>
     );
 }
