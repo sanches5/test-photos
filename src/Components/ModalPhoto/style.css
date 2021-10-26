@@ -1,0 +1,27 @@
+.Modal {
+    width: 50%;
+    text-align: center;
+    margin: 100px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 2px solid #313030;
+    box-shadow: 0 0 12px rgba(45, 44, 44, 0.4);
+    outline: none;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.Modal img {
+    width: 70%;
+    height: 70%;
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.ModalHeader {
+    text-align: end;
+}
+
+.ModalHeader svg {
+    cursor: pointer;
+}

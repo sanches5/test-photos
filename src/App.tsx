@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {FC, useCallback, useEffect, useState} from 'react';
+import {fetchConfig} from "./service/api";
+import Table from "./Components/Table";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type photo = {
+    albumId: number,
+    id: number,
+    title: string,
+    url: string,
+    thumbnailUrl: string
+}
+
+const App: FC = () => {
+    const [photos, setPhotos] = useState<photo[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const handleDeletePhoto = useCallback((id: number) => {
+        setLoading(true)
+        fetchConfig(`/photos/${id}`, "DELETE").then(() => {
+            setLoading(false)
+        })
+    }, [])
+
+    useEffect(() => {
+        setLoading(true)
+        fetchConfig("/photos", "GET").then(response => {
+            setPhotos(response)
+            setLoading(false)
+        })
+    }, [handleDeletePhoto])
+
+    return (
+        <div className="App">
+            {!loading && photos.length ? <Table
+                photos={photos}
+                handleDeletePhoto={handleDeletePhoto}
+            /> : <div>...LOADING</div>}
+        </div>
+    );
 }
 
 export default App;

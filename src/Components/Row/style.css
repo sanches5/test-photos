@@ -1,0 +1,29 @@
+.Row {
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 2px solid rgba(0,0,0, .7);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.photo {
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+    padding: 15px 25px;
+    background-color: rgba(255, 56, 56, 0.9);
+    border: 1px solid rgba(101, 101, 108, 0.4);
+    border-radius: 8px;
+}
+
+.delete:hover {
+    box-shadow: 0 0 12px rgba(0,0,0, .3);
+}
+
+.title {
+    margin: 0 10px;
+}
